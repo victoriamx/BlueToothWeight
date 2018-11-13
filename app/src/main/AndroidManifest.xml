@@ -37,6 +37,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".PairActivity"/>
+        <activity android:name=".DataActivity"/>
     </application>
 
 </manifest>

@@ -1,10 +1,9 @@
 package com.example.bob.weightdemo
 
-import android.graphics.Color
-import android.nfc.Tag
-import android.opengl.Visibility
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.provider.ContactsContract
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
@@ -151,10 +150,11 @@ class PairActivity : AppCompatActivity(){
                  * Weight Scale Measurement Data
                  * A3 product
                  */
-            this@PairActivity.runOnUiThread {
-                measureDataTextView.visibility = View.VISIBLE
-                measureDataTextView.text = wData.toString()
-            }
+                val intent = Intent()
+            //获取intent对象
+            intent.setClass(this@PairActivity,DataActivity::class.java)
+            intent.putExtra("data", wData)
+            startActivity(intent)
         }
 
         override fun onReceiveUserInfo(proUserInfo: WeightUserInfo?) {
